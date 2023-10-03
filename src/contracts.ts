@@ -9,9 +9,9 @@ enum ContractTypes {
 /**
  * Internal function that handles the contract logic
  *
- * @param c_type the type of contract being used
- * @param contract an expression that evaluates to a boolean result
- * @param message an optional message detail explaining the contract
+ * @param {ContractTypes} c_type the type of contract being used
+ * @param {boolean} contract an expression that evaluates to a boolean result
+ * @param {string?} message an optional message detail explaining the contract
  */
 function handle_contract_violation(c_type: ContractTypes, contract: boolean, message?: string): void {
     if (!contract) {
@@ -57,8 +57,8 @@ function handle_contract_violation(c_type: ContractTypes, contract: boolean, mes
  * }
  * ```
  *
- * @param contract an expression that evaluates to a boolean result (such as `a > 0`) 
- * @param message an optional message detail explaining the contract
+ * @param {boolean} contract an expression that evaluates to a boolean result (such as `a > 0`) 
+ * @param {string?} message an optional message detail explaining the contract
  */
 export function pre(contract: boolean, message?: string): void {
     handle_contract_violation(ContractTypes.PreCondition, contract, message);
@@ -77,8 +77,8 @@ export function pre(contract: boolean, message?: string): void {
  * }
  * ```
  *
- * @param contract an expression that evaluates to a boolean result (such as `a > 0`) 
- * @param message an optional message detail explaining the contract
+ * @param {boolean} contract an expression that evaluates to a boolean result (such as `a > 0`) 
+ * @param {string?} message an optional message detail explaining the contract
  */
 export function post(contract: boolean, message?: string): void {
     handle_contract_violation(ContractTypes.PostCondition, contract, message);
@@ -103,8 +103,8 @@ export function post(contract: boolean, message?: string): void {
  * }
  * ```
  *
- * @param contract an expression that evaluates to a boolean result (such as `a > 0`) 
- * @param message an optional message detail explaining the contract
+ * @param {boolean} contract an expression that evaluates to a boolean result (such as `a > 0`) 
+ * @param {string?} message an optional message detail explaining the contract
  */
 export function invariant(contract: boolean, message?: string): void {
     handle_contract_violation(ContractTypes.Invariant, contract, message);
