@@ -39,6 +39,8 @@ function add(a: number, b: number): number {
 }
 ```
 
+(The post condition is where the lack of direct language support proves annoying, since normally you'd want to just avoid the intermediate variable. Without having a lint/macro to rewrite or defining a custom function wrapper, it's not convenient to do so.)
+
 Invariant
 
 ```ts
