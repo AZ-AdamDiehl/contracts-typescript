@@ -14,9 +14,11 @@ enum ContractTypes {
  * @param {string?} message an optional message detail explaining the contract
  */
 function handleContractViolations (contractType: ContractTypes, contract: boolean, message?: string): void {
+  // If contract fails then throw a suitable error
   if (!contract) {
     let errorMessage: string
     let name: ContractErrorClass
+    // Construct the error based on the caller
     switch (contractType) {
       case ContractTypes.PreCondition:
         name = 'PRECONDITION_VIOLATION'
