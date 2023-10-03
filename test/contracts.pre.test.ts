@@ -12,6 +12,11 @@ function add_specific(a: number, b: number): number {
     return a + b;
 }
 
+function check_mod(a: number): number {
+    pre(a % 2 === 0, "a must be even");
+    return a / 2;
+}
+
 test('contract without message - should pass', () => {   
     expect(add(1, 1)).toBe(2);
 });
@@ -52,4 +57,13 @@ test('contract with message - check error data', () => {
         expect(errorName).toBe("PRECONDITION_VIOLATION");
         expect(errorMessage).toBe("precondition contract violated: a must be greater than 0");
     }
+});
+
+test('contract using equality', () => {   
+    expect(check_mod(2)).toBe(1);
+    expect(
+        () => {
+            check_mod(1)
+        }
+    ).toThrow();
 });
