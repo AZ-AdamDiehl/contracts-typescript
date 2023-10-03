@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest --coverage",
     "build": "npx tsc",
-    "docs": "npx typedoc"
+    "docs": "npx typedoc",
+    "lint": "npx eslint src/contracts.ts src/errors.ts --fix"
   },
   "author": "Adam Diehl",
   "license": "MIT",
